@@ -1,248 +1,655 @@
 <!doctype html>
-  <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <title>King Support</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- SEO / 공유 메타 -->
-    <meta name="description" content="King 앱의 사용 가이드, FAQ를 
-  확인하세요.">
-    <meta property="og:title" content="King Support">
-    <meta property="og:description" content="앱 사용 가이드 · FAQ">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="favicon.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>King of Run Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
+  <meta name="description" content="Support page for KOR - King of Run, the territory-based running app. Get help, read our FAQ, Privacy Policy, and Terms of Service.">
+  <meta property="og:title" content="King of Run Support">
+  <meta property="og:description" content="KOR app support · FAQ · Privacy Policy · Terms of Service">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.png">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2937;
+      --muted: #6b7280;
+      --brand: #A8FF00;
+      --brand-dark: #7ec800;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+      --hero-bg: rgba(168, 255, 0, 0.06);
+    }
+    @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #ffffff;
-        --fg: #1f2937;
-        --muted: #6b7280;
-        --brand: #6c8cff;
-        --card: #f8fafc;
-        --border: #e5e7eb;
+        --bg: #0b1010;
+        --fg: #e5e7eb;
+        --muted: #9aa4b2;
+        --brand: #A8FF00;
+        --brand-dark: #c4ff4d;
+        --card: #111a11;
+        --border: #1c2a1c;
+        --hero-bg: rgba(168, 255, 0, 0.05);
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #0b1220;
-          --fg: #e5e7eb;
-          --muted: #9aa4b2;
-          --brand: #8aa2ff;
-          --card: #0f1629;
-          --border: #1c2336;
-        }
-      }
-      * { box-sizing: border-box; }
-      html, body { margin:0; padding:0; background:var(--bg); 
-  color:var(--fg); 
-        font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", 
-  Roboto, 
-        "Noto Sans KR", Arial, "Apple SD Gothic Neo", "Malgun Gothic", 
-  sans-serif; }
-      a { color: var(--brand); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-      .container { max-width: 960px; padding: 24px; margin: 0 auto; }
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    a { color: var(--brand-dark); text-decoration: none; }
+    @media (prefers-color-scheme: dark) { a { color: var(--brand); } }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 960px; padding: 24px; margin: 0 auto; }
 
-      header { border-bottom: 1px solid var(--border); 
-        background: linear-gradient(180deg, rgba(108,140,255,.08), 
-  transparent); }
-      .nav { display:flex; gap:16px; align-items:center; justify-content: 
-  space-between; 
-        padding: 14px 24px; }
-      .nav .links a { color: var(--muted); margin-left: 14px; font-weight:
-   600; }
-      .hero { padding: 48px 24px 24px; }
-      .hero h1 { font-size: 36px; margin: 0 0 8px; letter-spacing: 
-  -0.02em; }
-      .hero p { margin: 0; color: var(--muted); }
+    /* NAV */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: var(--hero-bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    .nav-brand .crown {
+      font-size: 22px;
+    }
+    .nav-brand span.kor {
+      color: var(--brand-dark);
+    }
+    @media (prefers-color-scheme: dark) {
+      .nav-brand span.kor { color: var(--brand); }
+    }
+    .nav .links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav .links a {
+      color: var(--muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav .links a:hover {
+      color: var(--fg);
+      background: var(--border);
+      text-decoration: none;
+    }
 
-      section { padding: 32px 0; border-bottom: 1px solid var(--border); }
-      section h2 { font-size: 22px; margin: 0 0 16px; }
-      .grid { display: grid; gap: 16px; }
-      @media (min-width: 720px) { 
-        .grid.cols-2 { grid-template-columns: 1fr 1fr; } 
-        .grid.cols-3 { grid-template-columns: repeat(3,1fr); } 
-      }
+    /* HERO */
+    .hero {
+      padding: 64px 24px 48px;
+      background: var(--hero-bg);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: var(--brand);
+      color: #000;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 40px;
+      font-weight: 900;
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--brand-dark);
+    }
+    @media (prefers-color-scheme: dark) {
+      .hero h1 em { color: var(--brand); }
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
 
-      .card { background: var(--card); border: 1px solid var(--border); 
-        border-radius: 12px; padding: 16px; }
-      .card h3 { margin: 0 0 8px; font-size: 18px; }
-      .card p, .card ul, .card ol { margin: 8px 0; }
-      .muted { color: var(--muted); }
+    /* SECTIONS */
+    section { padding: 40px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    section h2 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    section .section-desc {
+      color: var(--muted);
+      margin: 0 0 24px;
+      font-size: 15px;
+    }
 
-      .screenshots { display: grid; gap: 16px; margin: 16px 0; }
-      @media (min-width: 720px) { 
-        .screenshots { grid-template-columns: repeat(auto-fit, 
-  minmax(200px, 1fr)); } 
-      }
-      .screenshot { border-radius: 12px; overflow: hidden; border: 1px 
-  solid var(--border); }
-      .screenshot img { width: 100%; height: auto; display: block; }
+    /* GRID / CARDS */
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 720px) {
+      .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+      .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
+    .card p, .card ul, .card ol { margin: 8px 0; color: var(--muted); font-size: 15px; }
+    .card ul, .card ol { padding-left: 20px; }
+    .card li { margin-bottom: 4px; }
+    .card .icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .card strong { color: var(--fg); }
 
-      footer { padding: 24px; color: var(--muted); text-align: center; }
-    </style>
-  </head>
-  <body>
-    <header>
-      <div class="nav">
-        <strong>King Support</strong>
-        <nav class="links">
-          <a href="#start">시작하기</a>
-          <a href="#faq">FAQ</a>
-          <a href="#privacy">개인정보처리방침</a>
-          <a href="#contact">문의</a>
-        </nav>
-      </div>
-      <div class="container hero">
-        <h1>King Support</h1>
-        <p>앱 사용 가이드 · FAQ</p>
-      </div>
-    </header>
+    /* FEATURE CARDS */
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .feature-card .icon { font-size: 30px; margin-bottom: 10px; display: block; }
+    .feature-card strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 
-    <main class="container">
-      <!-- 시작하기 -->
-      <section id="start">
-        <h2>시작하기</h2>
-        <div class="grid cols-2">
-          <div class="card">
-            <h3>기본 개념</h3>
-            <p class="muted">King는 생산성 앱으로, 직관적인 
-  인터페이스와 강력한 기능을 제공합니다.</p>
-          </div>
-          <div class="card">
-            <h3>빠른 시작</h3>
-            <ol>
-              <li>앱을 다운로드하고 실행</li>
-              <li>간단한 설정 완료</li>
-              <li>바로 사용 시작</li>
-            </ol>
-          </div>
-        </div>
-      </section>
+    /* STEPS */
+    .steps { display: flex; flex-direction: column; gap: 16px; }
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: #000;
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-body strong { display: block; font-weight: 700; margin-bottom: 2px; }
+    .step-body p { margin: 0; color: var(--muted); font-size: 14px; }
 
-      
+    /* FAQ */
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .faq-item h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .faq-item p { margin: 0; color: var(--muted); font-size: 15px; }
 
-      <!-- 주요 기능 -->
-      <section id="features">
-        <h2>주요 기능</h2>
-        <div class="grid cols-3">
-          <div class="card">
-            <strong>간편한 사용</strong>
-            <p class="muted">직관적인 UI로 누구나 쉽게 사용</p>
-          </div>
-          <div class="card">
-            <strong>데이터 동기화</strong>
-            <p class="muted">기기 간 자동 동기화 지원</p>
-          </div>
-          <div class="card">
-            <strong>안전한 보관</strong>
-            <p class="muted">클라우드에 안전하게 저장</p>
-          </div>
-        </div>
-      </section>
+    /* POLICY */
+    .policy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .policy-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 28px 0 10px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .policy-card h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+    .policy-card p { color: var(--muted); font-size: 15px; margin: 8px 0; }
+    .policy-card ul { color: var(--muted); font-size: 15px; padding-left: 20px; }
+    .policy-card ul li { margin-bottom: 6px; }
+    .policy-card strong { color: var(--fg); }
+    .policy-effective {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
 
-      <!-- FAQ -->
-      <section id="faq">
-        <h2>자주 묻는 질문(FAQ)</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>데이터는 어디에 저장되나요?</h3>
-            <p class="muted">모든 데이터는 Firebase에 안전하게 저장되며, 
-  기기 간 자동 동기화됩니다.</p>
-          </div>
-          <div class="card">
-            <h3>오프라인에서도 사용할 수 있나요?</h3>
-            <p class="muted">네, 한 번 다운로드한 데이터는 오프라인에서도 
-  사용할 수 있습니다.</p>
-          </div>
-          <div class="card">
-            <h3>광고를 제거하고 싶어요.</h3>
-            <p class="muted">앱 내 설정에서 프리미엄 구독을 통해 광고를 
-  제거할 수 있습니다.</p>
-          </div>
-          <div class="card">
-            <h3>계정을 삭제하려면?</h3>
-            <p class="muted">앱 내 설정 > 계정 관리에서 계정 삭제를 요청할
-   수 있습니다.</p>
-          </div>
-        </div>
-      </section>
+    /* CONTACT */
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-card p { margin: 0; color: var(--muted); font-size: 15px; }
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand);
+      color: #000;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      width: fit-content;
+      transition: opacity 0.15s;
+    }
+    .contact-email:hover { opacity: 0.85; text-decoration: none; }
 
-      <!-- 개인정보처리방침 -->
-      <section id="privacy">
-        <h2>개인정보처리방침</h2>
+    footer {
+      padding: 32px 24px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+    }
+    footer .footer-links { margin-bottom: 8px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    footer .footer-links a { color: var(--muted); font-size: 13px; }
+    footer .footer-links a:hover { color: var(--fg); }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 28px; }
+      .nav .links a { font-size: 12px; padding: 4px 7px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a class="nav-brand" href="#">
+        <span class="crown">&#x1F451;</span>
+        <span><span class="kor">KOR</span> Support</span>
+      </a>
+      <nav class="links">
+        <a href="#start">Getting Started</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container" style="padding-top:0;padding-bottom:0;">
+      <span class="badge">King of Run</span>
+      <h1>Support &amp; <em>Help Center</em></h1>
+      <p>Everything you need to conquer neighborhoods and rule the leaderboard.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- GETTING STARTED -->
+    <section id="start">
+      <h2>Getting Started</h2>
+      <p class="section-desc">New to KOR? Get up and running in minutes.</p>
+      <div class="grid cols-2">
         <div class="card">
-          <h3>1. 수집하는 개인정보</h3>
-          <ul>
-            <li><strong>회원가입 시</strong>: 이메일 주소, 닉네임</li>
-            <li><strong>자동 수집</strong>: 디바이스 UUID, 플랫폼 
-  정보(iOS), 앱 사용 기록</li>
-            <li><strong>사용 데이터</strong>: 앱 내 활동 기록</li>
-            <li>모든 데이터는 Firebase를 통해 암호화되어 저장됩니다</li>
-          </ul>
-          
-          <h3>2. 개인정보의 처리 목적</h3>
-          <ul>
-            <li>회원 관리 및 본인 확인</li>
-            <li>데이터 저장 및 기기 간 동기화</li>
-            <li>앱 사용 통계 분석(Firebase Analytics)</li>
-            <li>서비스 개선을 위한 사용자 피드백 수집</li>
-          </ul>
-          
-          <h3>3. 개인정보의 제3자 제공</h3>
-          <ul>
-            <li><strong>Firebase (Google)</strong><br>
-                제공 항목: 이메일, 사용 데이터, 디바이스 정보<br>
-                제공 목적: 데이터 저장, 동기화, 통계 분석<br>
-                보유 기간: 회원 탈퇴 시까지
-            </li>
-          </ul>
-          
-          <h3>4. 개인정보의 보유 및 파기</h3>
-          <ul>
-            <li>회원 탈퇴 시 즉시 삭제 (법령에 의한 보관 의무 제외)</li>
-            <li>미사용 계정: 1년 미접속 시 별도 저장 후 파기</li>
-          </ul>
-          
-          <h3>5. 이용자의 권리</h3>
-          <ul>
-            <li>개인정보 열람, 수정, 삭제 요청 가능</li>
-            <li>앱 내 설정에서 계정 삭제 가능</li>
-          </ul>
-          
-          <h3>6. 개인정보 보호책임자</h3>
-          <ul>
-            <li>회사: (주)BCD</li>
-            <li>이메일: support@king.app</li>
-          </ul>
-          
-          <h3>7. 개인정보처리방침 변경</h3>
-          <ul>
-            <li>변경 시 앱 내 공지 및 이메일 통지</li>
-            <li>시행일: 2025년 1월 1일</li>
-          </ul>
+          <h3>Download &amp; Sign In</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <strong>Download KOR</strong>
+                <p>Search for "King of Run" on the App Store and install the app.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <strong>Sign In</strong>
+                <p>Use Sign in with Apple or Sign in with Google. No password required.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <strong>Set Up Your Profile</strong>
+                <p>Choose a display name and profile picture to represent you on the leaderboard.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <!-- 문의 -->
-      <section id="contact">
-        <h2>문의</h2>
         <div class="card">
-          <p class="muted">버그 제보 및 기능 제안은 앱 내 설정 > 
-  문의하기를 이용해 주세요.</p>
-          <p class="muted">이메일: <a 
-  href="mailto:support@king.app">support@king.app</a></p>
+          <h3>Start Conquering</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <strong>Grant Permissions</strong>
+                <p>Allow location access (Always or While Using) for live run tracking. Grant HealthKit access to import past runs.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <strong>Start a Run</strong>
+                <p>Tap the Run button, head outside, and watch the map fill in as you cover streets and paths.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">6</div>
+              <div class="step-body">
+                <strong>Check the Rankings</strong>
+                <p>See where you rank in your neighborhood and compete with other runners in your district.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      © <span id="year"></span> King. All rights reserved.
-    </footer>
+    <!-- FEATURES -->
+    <section id="features">
+      <h2>Features</h2>
+      <p class="section-desc">Everything that makes KOR more than just a running tracker.</p>
+      <div class="grid cols-3">
+        <div class="feature-card">
+          <span class="icon">&#x1F5FA;</span>
+          <strong>Territory Conquest</strong>
+          <p>Every street you run gets painted on the map as your territory. Build your empire one block at a time.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">&#x1F3C6;</span>
+          <strong>Neighborhood Rankings</strong>
+          <p>Compete for the #1 spot in your district — Gangnam-gu, Mapo-gu, and hundreds more. Stay on top or get dethroned.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">&#x1F9A3;</span>
+          <strong>Crew System</strong>
+          <p>Create or join a running crew. Compete on crew leaderboards and take over neighborhoods as a team.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">&#x26A1;</span>
+          <strong>Flash Meetups</strong>
+          <p>Organize spontaneous group runs. Post a meetup with time, location, and distance — open to all or crew-only.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">&#x2764;</span>
+          <strong>Apple Health Sync</strong>
+          <p>Import runs recorded via Garmin, Strava, WHOOP, and more through Apple Health. Your full history, in one place.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">&#x1F4CD;</span>
+          <strong>Live GPS Tracking</strong>
+          <p>Real-time GPS path recording with a live map view. Every meter counts toward your territory.</p>
+        </div>
+      </div>
+    </section>
 
-    <script>
-      document.getElementById('year').textContent = new 
-  Date().getFullYear();
-    </script>
-  </body>
-  </html>
+    <!-- FAQ -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <p class="section-desc">Got questions? We've got answers.</p>
+      <div class="grid">
+
+        <div class="faq-item">
+          <h3>Where is my data stored?</h3>
+          <p>All account and run data is stored securely in Google Firebase (Firestore). Your data is associated with your account and deleted permanently when you delete your account.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I use KOR offline?</h3>
+          <p>GPS tracking works offline — the app records your path locally during a run. However, uploading your run, viewing leaderboards, and syncing data require an internet connection.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I delete my account?</h3>
+          <p>Go to <strong>Settings &rarr; Account &rarr; Delete Account</strong> inside the app. This permanently deletes your profile, run history, territory data, and all associated data from our servers.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How does HealthKit integration work?</h3>
+          <p>When you grant HealthKit permission, KOR can read workout sessions recorded by other apps (Garmin, Strava, WHOOP, etc.) and import them as runs. We never write to HealthKit and never share your health data with third parties.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I create or join a crew?</h3>
+          <p>Open the <strong>Crew</strong> tab and tap <strong>Create Crew</strong> or search for an existing crew to join. Crew creators can manage members, approve join requests, and remove members at any time.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What counts as "territory"?</h3>
+          <p>Territory is the total area (in square meters or km&sup2;) covered by your GPS paths. The more streets and paths you run through, the more territory you accumulate. Territory is virtual and represents no real-world property rights.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I change my display name?</h3>
+          <p>Yes. Go to <strong>Settings &rarr; Profile</strong> to update your display name and profile picture at any time.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Why does KOR need location access?</h3>
+          <p>Location is required to track your run path in real time and to map the territory you conquer. We only use location data during active runs and for building your territory map. Location data is never sold or shared with advertisers.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I report a bug or send feedback?</h3>
+          <p>Email us at <a href="mailto:support@kingofrun.app">support@kingofrun.app</a> or use the in-app feedback option under <strong>Settings &rarr; Contact Us</strong>.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRIVACY POLICY -->
+    <section id="privacy">
+      <h2>Privacy Policy</h2>
+      <p class="section-desc">Last updated and effective: March 1, 2026</p>
+      <div class="policy-card">
+        <p class="policy-effective">Effective Date: March 1, 2026 &nbsp;&bull;&nbsp; Company: BCD Inc. &nbsp;&bull;&nbsp; Contact: <a href="mailto:support@kingofrun.app">support@kingofrun.app</a></p>
+
+        <h3>1. Introduction</h3>
+        <p>BCD Inc. ("we," "our," or "us") operates the King of Run (KOR) iOS application. This Privacy Policy explains what information we collect, how we use it, and the choices you have. By using KOR, you agree to the practices described in this policy.</p>
+
+        <h3>2. Information We Collect</h3>
+        <ul>
+          <li><strong>Account Information:</strong> When you sign in with Apple or Google, we receive your email address and display name as provided by those services. We do not receive or store your Apple or Google passwords.</li>
+          <li><strong>GPS Location Data:</strong> During active runs, we collect your GPS path to record run routes and compute territory. Location data is linked to your account and stored in Firestore.</li>
+          <li><strong>HealthKit Workout Data:</strong> With your explicit permission, we read workout sessions from Apple Health (e.g., runs recorded via Garmin, Strava, WHOOP). This data is imported to display your run history in KOR. We do not write to HealthKit.</li>
+          <li><strong>Device Information:</strong> We collect basic device info (OS version, device model) for debugging and service improvement.</li>
+          <li><strong>Usage Data:</strong> App interactions, feature usage, and crash reports may be collected via Firebase Analytics and Crashlytics to help us improve the app.</li>
+        </ul>
+
+        <h3>3. How We Use Your Information</h3>
+        <ul>
+          <li>To authenticate your identity and maintain your account (Firebase Auth).</li>
+          <li>To store and display your run history, territory data, crew memberships, and leaderboard rankings (Firebase Firestore).</li>
+          <li>To power real-time GPS run tracking and territory mapping.</li>
+          <li>To import and display workout data from Apple Health (with your permission).</li>
+          <li>To analyze app usage and fix bugs (Firebase Analytics, Crashlytics).</li>
+          <li>To send in-app notifications relevant to your runs, crew activity, and meetups.</li>
+        </ul>
+
+        <h3>4. HealthKit Data</h3>
+        <p>KOR accesses HealthKit data solely to import your run history into the app. HealthKit data is:</p>
+        <ul>
+          <li>Used only within KOR to display your imported runs.</li>
+          <li>Never shared with third parties, advertisers, or data brokers.</li>
+          <li>Never used for advertising or marketing purposes.</li>
+          <li>Deleted from our servers when you delete your account.</li>
+        </ul>
+        <p>You can revoke HealthKit access at any time in <strong>iOS Settings &rarr; Privacy &amp; Security &rarr; Health &rarr; King of Run</strong>.</p>
+
+        <h3>5. Location Data</h3>
+        <p>GPS location is collected during active run sessions to record your route and compute territory coverage. Location data is stored securely in Firebase Firestore and is used only for the territory mapping and leaderboard features of KOR. We do not track your location in the background outside of active run sessions beyond what is necessary for run recording.</p>
+
+        <h3>6. Third-Party Services</h3>
+        <ul>
+          <li><strong>Google Firebase (Auth, Firestore, Analytics, Crashlytics):</strong> Used for authentication, data storage, and analytics. Firebase is subject to Google's Privacy Policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</li>
+          <li><strong>Apple Sign In / Google Sign In:</strong> Used for secure account creation. We receive only the information you authorize during sign-in.</li>
+        </ul>
+        <p>We do not sell your data to any third party.</p>
+
+        <h3>7. Data Retention</h3>
+        <p>We retain your data for as long as your account is active. When you delete your account, all associated data — including your profile, run history, territory records, GPS paths, crew memberships, and HealthKit-imported data — is permanently deleted from our servers.</p>
+
+        <h3>8. Your Rights</h3>
+        <ul>
+          <li><strong>Access:</strong> You can view your data within the app at any time.</li>
+          <li><strong>Correction:</strong> You can update your display name and profile in Settings.</li>
+          <li><strong>Deletion:</strong> You can delete your account and all associated data via <strong>Settings &rarr; Account &rarr; Delete Account</strong>.</li>
+          <li><strong>HealthKit Revocation:</strong> Revoke HealthKit access at any time in iOS Settings.</li>
+        </ul>
+        <p>For any data requests not available in-app, contact us at <a href="mailto:support@kingofrun.app">support@kingofrun.app</a>.</p>
+
+        <h3>9. Children's Privacy</h3>
+        <p>KOR is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us personal information, please contact us and we will delete it promptly.</p>
+
+        <h3>10. Changes to This Policy</h3>
+        <p>We may update this Privacy Policy from time to time. When we do, we will notify you via an in-app announcement and update the effective date above. Continued use of KOR after the effective date constitutes acceptance of the updated policy.</p>
+
+        <h3>11. Contact</h3>
+        <p>BCD Inc.<br>
+        Email: <a href="mailto:support@kingofrun.app">support@kingofrun.app</a></p>
+      </div>
+    </section>
+
+    <!-- TERMS OF SERVICE -->
+    <section id="terms">
+      <h2>Terms of Service</h2>
+      <p class="section-desc">Last updated and effective: March 1, 2026</p>
+      <div class="policy-card">
+        <p class="policy-effective">Effective Date: March 1, 2026 &nbsp;&bull;&nbsp; Company: BCD Inc. &nbsp;&bull;&nbsp; Contact: <a href="mailto:support@kingofrun.app">support@kingofrun.app</a></p>
+
+        <h3>1. Acceptance of Terms</h3>
+        <p>By downloading, installing, or using King of Run ("KOR," "the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not use the App. These Terms constitute a legally binding agreement between you and BCD Inc.</p>
+
+        <h3>2. Eligibility</h3>
+        <p>You must be at least 13 years old to use KOR. By using the App, you represent that you meet this requirement. Users in certain regions may be subject to higher age requirements under local law.</p>
+
+        <h3>3. Account Creation</h3>
+        <p>Accounts are created exclusively via Sign in with Apple or Sign in with Google. You are responsible for maintaining the security of your account and for all activity that occurs under it. Notify us immediately at <a href="mailto:support@kingofrun.app">support@kingofrun.app</a> if you suspect unauthorized access.</p>
+
+        <h3>4. User Conduct</h3>
+        <p>When using KOR, you agree NOT to:</p>
+        <ul>
+          <li><strong>Cheat or spoof GPS:</strong> Using GPS spoofing, emulators, or any tool that falsifies your location to gain unfair territory or ranking advantages is strictly prohibited.</li>
+          <li><strong>Harass other users:</strong> Bullying, threatening, or harassing other runners in meetups, crew chats, or any in-app interaction is not allowed.</li>
+          <li><strong>Exploit bugs:</strong> Deliberately exploiting software bugs to gain unfair advantages. Report bugs to us instead.</li>
+          <li><strong>Impersonate others:</strong> Using another person's identity, name, or likeness without their consent.</li>
+          <li><strong>Violate laws:</strong> Using the App for any unlawful purpose or in violation of applicable laws and regulations.</li>
+          <li><strong>Scrape or automate:</strong> Using bots, scripts, or automated tools to interact with the App.</li>
+        </ul>
+        <p>Violations may result in immediate account suspension or termination without notice.</p>
+
+        <h3>5. Territory System</h3>
+        <p>Territory in KOR is entirely virtual. Conquering a neighborhood in the App creates no real-world property rights, ownership claims, or legal interests of any kind. Territory rankings are for competitive entertainment purposes only.</p>
+
+        <h3>6. Health &amp; Safety Disclaimer</h3>
+        <p>KOR is a fitness tracking and gamification app, not a medical device or health service. The App is not intended to diagnose, treat, cure, or prevent any medical condition.</p>
+        <ul>
+          <li>Consult your physician before beginning any new exercise program.</li>
+          <li>Stop running and seek medical attention if you experience pain, dizziness, chest discomfort, or other symptoms.</li>
+          <li>Always obey traffic laws and run safely — your safety is your responsibility.</li>
+          <li>BCD Inc. is not liable for any injury, accident, or health event arising from use of the App.</li>
+        </ul>
+
+        <h3>7. Crew Rules</h3>
+        <ul>
+          <li>Crew creators ("Crew Leaders") can manage crew membership, including approving join requests, removing members, and disbanding the crew.</li>
+          <li>Crew names and content must be appropriate and not violate these Terms.</li>
+          <li>BCD Inc. reserves the right to disband crews that violate these Terms.</li>
+        </ul>
+
+        <h3>8. User-Generated Content (Meetups)</h3>
+        <p>When you create a meetup or post any content in the App, you grant BCD Inc. a non-exclusive, royalty-free license to display and distribute that content within the App. You are responsible for ensuring your content is appropriate, accurate, and compliant with applicable law. We reserve the right to remove content that violates these Terms.</p>
+
+        <h3>9. Intellectual Property</h3>
+        <p>All rights, title, and interest in KOR — including its name, logo, design, code, and content — belong to BCD Inc. You may not copy, modify, distribute, or create derivative works from any part of the App without our written permission.</p>
+
+        <h3>10. Termination</h3>
+        <p>BCD Inc. may suspend or terminate your account at any time, with or without notice, for violations of these Terms or for any other reason at our sole discretion. You may delete your account at any time via <strong>Settings &rarr; Account &rarr; Delete Account</strong>.</p>
+
+        <h3>11. Disclaimers</h3>
+        <p>KOR is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not guarantee that the App will be uninterrupted, error-free, or secure at all times.</p>
+
+        <h3>12. Limitation of Liability</h3>
+        <p>To the maximum extent permitted by applicable law, BCD Inc. shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of data, personal injury, or property damage — arising out of your use of KOR, even if we have been advised of the possibility of such damages. Our total liability to you for any claim shall not exceed the amount you paid to us in the twelve months preceding the claim.</p>
+
+        <h3>13. Changes to Terms</h3>
+        <p>We may modify these Terms at any time. We will notify you of material changes via an in-app notification. Continued use of KOR after changes take effect constitutes your acceptance of the revised Terms.</p>
+
+        <h3>14. Governing Law</h3>
+        <p>These Terms are governed by and construed in accordance with the laws of the Republic of Korea, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Seoul, Republic of Korea.</p>
+
+        <h3>15. Contact</h3>
+        <p>Questions about these Terms? Contact us:<br>
+        BCD Inc.<br>
+        Email: <a href="mailto:support@kingofrun.app">support@kingofrun.app</a></p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact &amp; Support</h2>
+      <p class="section-desc">We're here to help. Reach out any time.</p>
+      <div class="contact-card">
+        <p>For bug reports, feature requests, account issues, or general questions, email our support team. We aim to respond within 1-2 business days.</p>
+        <a class="contact-email" href="mailto:support@kingofrun.app">
+          &#x2709; support@kingofrun.app
+        </a>
+        <p style="font-size:13px;">You can also use <strong>Settings &rarr; Contact Us</strong> inside the app to send feedback directly.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>&copy; <span id="year"></span> BCD Inc. All rights reserved. &nbsp;&bull;&nbsp; King of Run (KOR)</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
